@@ -160,16 +160,18 @@ UUID は小文字で `8-4-4-4-12` の形式で出力しましょう。
 
 ### パスや属性は小文字にしましょう
 
-Use downcased and dash-separated path names, for alignment with
-hostnames, e.g:
+ホスト名にあわせて、小文字でダッシュ区切りのパス名を用いましょう。
+
+例:
 
 ```
 service-api.com/users
 service-api.com/app-setups
 ```
 
-Downcase attributes as well, but use underscore separators so that
-attribute names are valid JSON keys, e.g.:
+属性も小文字ですが、 valid な JSON のキーとするために、属性名はアンダースコア区切りとしましょう。
+
+例:
 
 ```
 "service_class": "first"
