@@ -107,12 +107,11 @@ $ curl -X POST https://service.com/apps \
 
 ### リソースの (UU)ID を提供しましょう
 
-Give each resource an `id` attribute by default. Use UUIDs unless you
-have a very good reason not to. Don’t use IDs that won’t be globally
-unique across instances of the service or other resources in the
-service, especially auto-incrementing IDs.
+各リソースでは `id` 属性をデフォルトで用意しましょう。何か特別な理由がない限りは UUID を使いましょう。特に auto-incrementing な ID のような、そのサービス内のインスタンス間やリソース間でユニークにグローバルでアクセスできない ID は使わないでください。
 
-Render UUIDs in downcased `8-4-4-4-12` format, e.g.:
+UUID は小文字で `8-4-4-4-12` の形式で出力しましょう。
+
+例:
 
 ```
 "id": "01234567-89ab-cdef-0123-456789abcdef"
