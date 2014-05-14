@@ -1,23 +1,16 @@
-# HTTP API Design Guide
+# HTTP API 設計ガイド
 
-## Introduction
+## はじめに
 
-This guide describes a set of HTTP+JSON API design practices, originally
-extracted from work on the [Heroku Platform API](https://devcenter.heroku.com/articles/platform-api-reference).
+このガイドは HTTP+JSON API の設計に関する慣習の数々を記述したものです。 [Heroku Platform API](https://devcenter.heroku.com/articles/platform-api-reference) における成果物が基になっています。
 
-This guide informs additions to that API and also guides new internal
-APIs at Heroku. We hope it’s also of interest to API designers
-outside of Heroku.
+このガイドは API (訳註: Heroku Platform API) に対して影響を与えたり、Heroku 内の新しい API 群の手引きとなります。また、私たちは、 Heroku 外の API 設計者の興味を惹くことも望んでいます。
 
-Our goals here are consistency and focusing on business logic while
-avoiding design bikeshedding. We’re looking for _a good, consistent,
-well-documented way_ to design APIs, not necessarily _the only/ideal
-way_.
+設計に関する無駄な議論 (bikeshedding) を避け、一貫性やビジネスロジックにフォーカスをすることを目的としています。 _唯一、または理想的な方法_ に限らず、 API に関する _優れた、一貫した、 well-documented な方法_ を求めています。
 
-We assume you’re familiar with the basics of HTTP+JSON APIs and won’t
-cover all of the fundamentals of those in this guide.
+本ドキュメントでは、基本的な HTTP+JSON API に精通している読者を想定としているため、それらの基礎事項については網羅していません。
 
-We welcome [contributions](CONTRIBUTING.md) to this guide.
+このガイドに対する [貢献](CONTRIBUTING.md) も歓迎します。
 
 ## Contents
 
