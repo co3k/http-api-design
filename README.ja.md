@@ -146,15 +146,13 @@ UUID は小文字で `8-4-4-4-12` の形式で出力しましょう。
 
 ### 一貫したパス形式を使いましょう
 
-Prefer endpoint layouts that don’t need any special actions for
-individual resources. In cases where special actions are needed, place
-them under a standard `actions` prefix, to clearly delineate them:
+個々のリソースに対して特別な action を必要としないのが好ましいエンドポイントのレイアウトです。特別な action が必要な場合は、通例として `actions` という prefix の下に配置することでその旨を明確にしましょう。
 
 ```
 /resources/:resource/actions/:action
 ```
 
-e.g.
+例:
 
 ```
 /runs/{run_id}/actions/stop
