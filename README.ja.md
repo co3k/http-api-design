@@ -12,32 +12,32 @@
 
 このガイドに対する [貢献](CONTRIBUTING.md) も歓迎します。
 
-## Contents
+## 目次
 
-*  [Return appropriate status codes](#return-appropriate-status-codes)
-*  [Provide full resources where available](#provide-full-resources-where-available)
-*  [Accept serialized JSON in request bodies](#accept-serialized-json-in-request-bodies)
-*  [Provide resource (UU)IDs](#provide-resource-uuids)
-*  [Provide standard timestamps](#provide-standard-timestamps)
-*  [Use UTC times formatted in ISO8601](#use-utc-times-formatted-in-ISO8601)
-*  [Use consistent path formats](#use-consistent-path-formats)
-*  [Downcase paths and attributes](#downcase-paths-and-attributes)
-*  [Nest foreign key relations](#nest-foreign-key-relations)
-*  [Support non-id dereferencing for convenience](#support-non-id-dereferencing-for-convenience)
-*  [Generate structured errors](#generate-structured-errors)
-*  [Support caching with Etags](#support-caching-with-etags)
-*  [Trace requests with Request-Ids](#trace-requests-with-request-ids)
-*  [Paginate with ranges](#paginate-with-ranges)
-*  [Show rate limit status](#show-rate-limit-status)
-*  [Version with Accepts header](#version-with-accepts-header)
-*  [Provide machine-readable JSON schema](#provide-machine-readable-json-schema)
-*  [Provide human-readable docs](#provide-human-readable-docs)
-*  [Provide executable examples](#provide-executable-examples)
-*  [Describe stability](#describe-stability)
-*  [Require SSL](#require-ssl)
-*  [Pretty-print JSON by default](#pretty-print-json-by-default)
+*  [適切なステータスコードを返しましょう](#return-appropriate-status-codes)
+*  [可能な限り完全なリソースを提供しましょう](#provide-full-resources-where-available)
+*  [リクエストボディでは JSON を受け付けましょう](#accept-serialized-json-in-request-bodies)
+*  [リソースの (UU)ID を提供しましょう](#provide-resource-uuids)
+*  [標準的なタイムスタンプを提供しましょう](#provide-standard-timestamps)
+*  [ISO8601 形式の UTC 時間を使いましょう](#use-utc-times-formatted-in-ISO8601)
+*  [一貫したパス形式を使いましょう](#use-consistent-path-formats)
+*  [パスや属性は小文字にしましょう](#downcase-paths-and-attributes)
+*  [外部キーのリレーションはネストしましょう](#nest-foreign-key-relations)
+*  [利便性のために ID によらない参照も用意しましょう](#support-non-id-dereferencing-for-convenience)
+*  [構造化されたエラーを生成しましょう](#generate-structured-errors)
+*  [ETag によるキャッシュをサポートしましょう](#support-caching-with-etags)
+*  [Request-Id でリクエストを追跡しましょう](#trace-requests-with-request-ids)
+*  [範囲指定によるページングをしましょう](#paginate-with-ranges)
+*  [rate limit のステータスを明示しましょう](#show-rate-limit-status)
+*  [バージョンは Accepts ヘッダに含めましょう](#version-with-accepts-header)
+*  [machine-readable な JSON schema を提供しましょう](#provide-machine-readable-json-schema)
+*  [human-readable なドキュメントを提供しましょう](#provide-human-readable-docs)
+*  [実行可能な例を提供しましょう](#provide-executable-examples)
+*  [安定性 (stability) について記述しましょう](#describe-stability)
+*  [SSL を必須としましょう](#require-ssl)
+*  [デフォルトで読みやすい JSON を出力しましょう](#pretty-print-json-by-default)
 
-### Return appropriate status codes
+### 適切なステータスコードを返しましょう
 
 Return appropriate HTTP status codes with each response. Successful
 responses should be coded according to this guide:
@@ -54,7 +54,7 @@ responses should be coded according to this guide:
 Refer to the [HTTP response code spec](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
 for guidance on status codes for user error and server error cases.
 
-### Provide full resources where available
+### 可能な限り完全なリソースを提供しましょう
 
 Provide the full resource representation (i.e. the object with all
 attributes) whenever possible in the response. Always provide the full
@@ -89,7 +89,7 @@ Content-Type: application/json;charset=utf-8
 {}
 ```
 
-### Accept serialized JSON in request bodies
+### リクエストボディでは JSON を受け付けましょう
 
 Accept serialized JSON on `PUT`/`PATCH`/`POST` request bodies, either
 instead of or in addition to form-encoded data. This creates symmetry
@@ -111,7 +111,7 @@ $ curl -X POST https://service.com/apps \
 }
 ```
 
-### Provide resource (UU)IDs
+### リソースの (UU)ID を提供しましょう
 
 Give each resource an `id` attribute by default. Use UUIDs unless you
 have a very good reason not to. Don’t use IDs that won’t be globally
@@ -124,7 +124,7 @@ Render UUIDs in downcased `8-4-4-4-12` format, e.g.:
 "id": "01234567-89ab-cdef-0123-456789abcdef"
 ```
 
-### Provide standard timestamps
+### 標準的なタイムスタンプを提供しましょう
 
 Provide created_at and updated_at timestamps for resources by default,
 e.g:
@@ -141,7 +141,7 @@ e.g:
 These timestamps may not make sense for some resources, in which case
 they can be omitted.
 
-### Use UTC times formatted in ISO8601
+### ISO8601 形式の UTC 時間を使いましょう
 
 Accept and return times in UTC only. Render times in ISO8601 format,
 e.g.:
@@ -150,7 +150,7 @@ e.g.:
 "finished_at": "2012-01-01T12:00:00Z"
 ```
 
-### Use consistent path formats
+### 一貫したパス形式を使いましょう
 
 Prefer endpoint layouts that don’t need any special actions for
 individual resources. In cases where special actions are needed, place
@@ -166,7 +166,7 @@ e.g.
 /runs/{run_id}/actions/stop
 ```
 
-### Downcase paths and attributes
+### パスや属性は小文字にしましょう
 
 Use downcased and dash-separated path names, for alignment with
 hostnames, e.g:
@@ -183,7 +183,7 @@ attribute names are valid JSON keys, e.g.:
 "service_class": "first"
 ```
 
-### Nest foreign key relations
+### 外部キーのリレーションはネストしましょう
 
 Serialize foreign key references with a nested object, e.g.:
 
@@ -223,7 +223,7 @@ or introduce more top-level response fields, e.g.:
 }
 ```
 
-### Support non-id dereferencing for convenience
+### 利便性のために ID によらない参照も用意しましょう
 
 In some cases it may be inconvenient for end-users to provide IDs to
 identify a resource. For example, a user may think in terms of a Heroku
@@ -238,7 +238,7 @@ $ curl https://service.com/apps/www-prod
 
 Do not accept only names to the exclusion of IDs.
 
-### Generate structured errors
+### 構造化されたエラーを生成しましょう
 
 Generate consistent, structured response bodies on errors. Include a
 machine-readable error `id`, a human-readable error `message`, and
@@ -260,20 +260,20 @@ HTTP/1.1 429 Too Many Requests
 Document your error format and the possible error `id`s that clients may
 encounter.
 
-### Support caching with Etags
+### ETag によるキャッシュをサポートしましょう
 
 Include an `ETag` header in all responses, identifying the specific
 version of the returned resource. The user should be able to check for
 staleness in their subsequent requests by supplying the value in the
 `If-None-Match` header.
 
-### Trace requests with Request-Ids
+### Request-Id でリクエストを追跡しましょう
 
 Include a `Request-Id` header in each API response, populated with a
 UUID value. If both the server and client log these values, it will be
 helpful for tracing and debugging requests.
 
-### Paginate with Ranges
+### 範囲指定によるページングをしましょう
 
 Paginate any responses that are liable to produce large amounts of data.
 Use `Content-Range` headers to convey pagination requests. Follow the
@@ -281,7 +281,7 @@ example of the [Heroku Platform API on Ranges](https://devcenter.heroku.com/arti
 for the details of request and response headers, status codes, limits,
 ordering, and page-walking.
 
-### Show rate limit status
+### rate limit のステータスを明示しましょう
 
 Rate limit requests from clients to protect the health of the service
 and maintain high service quality for other clients. You can use a
@@ -291,7 +291,7 @@ quantify request limits.
 Return the remaining number of request tokens with each request in the
 `RateLimit-Remaining` response header.
 
-### Version with Accepts header
+### バージョンは Accepts ヘッダに含めましょう
 
 Version the API from the start. Use the `Accepts` header to communicate
 the version, along with a custom content type, e.g.:
@@ -324,13 +324,13 @@ case above where a dyno belongs to an app belongs to an org:
 /dynos/{dyno_id}
 ```
 
-### Provide machine-readable JSON schema
+### machine-readable な JSON schema を提供しましょう
 
 Provide a machine-readable schema to exactly specify your API. Use
 [prmd](https://github.com/interagent/prmd) to manage your schema, and ensure
 it validates with `prmd verify`.
 
-### Provide human-readable docs
+### human-readable なドキュメントを提供しましょう
 
 Provide human-readable documentation that client developers can use to
 understand your API.
@@ -348,7 +348,7 @@ information about:
 * Error serialization format.
 * Examples of using the API with clients in different languages.
 
-### Provide executable examples
+### 実行可能な例を提供しましょう
 
 Provide executable examples that users can type directly into their
 terminals to see working API calls. To the greatest extent possible,
@@ -363,7 +363,7 @@ $ curl -is https://$TOKEN@service.com/users
 If you use [prmd](https://github.com/interagent/prmd) to generate Markdown
 docs, you will get examples for each endpoint for free.
 
-### Describe stability
+### 安定性 (stability) について記述しましょう
 
 Describe the stability of your API or its various endpoints according to
 its maturity and stability, e.g. with prototype/development/production
@@ -377,13 +377,13 @@ backwards incompatible changes within that API version. If you need to
 make backwards-incompatible changes, create a new API with an
 incremented version number.
 
-### Require SSL
+### SSL を必須としましょう
 
 Require SSL to access the API, without exception. It’s not worth trying
 to figure out or explain when it is OK to use SSL and when it’s not.
 Just require SSL for everything.
 
-### Pretty-print JSON by default
+### デフォルトで読みやすい JSON を出力しましょう
 
 The first time a user sees your API is likely to be at the command line,
 using curl. It’s much easier to understand API responses at the
