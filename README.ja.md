@@ -50,10 +50,9 @@
 
 ### 可能な限り完全なリソースを提供しましょう
 
-Provide the full resource representation (i.e. the object with all
-attributes) whenever possible in the response. Always provide the full
-resource on 200 and 201 responses, including `PUT`/`PATCH` and `DELETE`
-requests, e.g.:
+そのレスポンスにおいて可能な限りは常に、完全なリソース表現 (例: すべての属性を伴うオブジェクト) を提供しましょう。 `PUT` 、 `PATCH` 、 `DELETE` の場合も含め、 200 もしくは 201 レスポンスにおいては完全なリソース表現を必ず提供しましょう。
+
+例:
 
 ```
 $ curl -X DELETE \  
@@ -70,8 +69,9 @@ Content-Type: application/json;charset=utf-8
 }
 ```
 
-202 and 204 responses will not include the full resource representation,
-e.g.:
+202 や 204 レスポンスでは完全なリソース表現は含まれません。
+
+例:
 
 ```
 $ curl -X DELETE \  
