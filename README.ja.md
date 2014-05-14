@@ -179,7 +179,9 @@ service-api.com/app-setups
 
 ### 外部キーのリレーションはネストしましょう
 
-Serialize foreign key references with a nested object, e.g.:
+外部キー参照はネストしたオブジェクトとしてシリアライズしましょう。
+
+例:
 
 ```json
 {
@@ -190,8 +192,8 @@ Serialize foreign key references with a nested object, e.g.:
   ...
 }
 ```
-  
-Instead of e.g:
+
+良くない例:
 
 ```json
 {
@@ -201,9 +203,9 @@ Instead of e.g:
 }
 ```
 
-This approach makes it possible to inline more information about the
-related resource without having to change the structure of the response
-or introduce more top-level response fields, e.g.:
+このアプローチによって、レスポンスの構造の変更やトップレベルのレスポンスフィールドの導入をすることなく、関連したリソースに関する多くの情報を含むことができるようになります。
+
+例:
 
 ```json
 {
