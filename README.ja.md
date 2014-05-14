@@ -39,20 +39,14 @@
 
 ### 適切なステータスコードを返しましょう
 
-Return appropriate HTTP status codes with each response. Successful
-responses should be coded according to this guide:
+各レスポンスにて適切な HTTP ステータスコードを返しましょう。成功時レスポンスは本ガイドに沿って決められるべきです:
 
-* `200`: Request succeeded for a `GET` calls, and for `DELETE` or
-  `PATCH` calls that complete synchronously
-* `201`: Request succeeded for a `POST` call that completes
-  synchronously
-* `202`: Request succeeded for a `POST`, `DELETE`, or `PATCH` call that
-  will complete asynchronously
-* `206`: Request succeeded on `GET`, but only a partial response
-  returned: see [above on ranges](#paginate-with-ranges)
+* `200`: `GET` リクエストが成功したか、 `DELETE` もしくは `PATCH` リクエストによる同期が完了した
+* `201`: `POST` リクエストが成功し、同期が完了した
+* `202`: 非同期の `POST` 、 `DELETE` 、 `PATCH` リクエストが完了する
+* `206`: `GET` リクエストが成功したが、一部のレスポンスしか返さない (※ [範囲指定によるページングをしましょう](#paginate-with-ranges) を参照のこと)
 
-Refer to the [HTTP response code spec](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
-for guidance on status codes for user error and server error cases.
+ユーザーエラーやサーバーエラーにおけるステータスコードの手引きとしては [HTTP response code spec](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) を参照してください。
 
 ### 可能な限り完全なリソースを提供しましょう
 
