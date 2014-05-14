@@ -119,8 +119,9 @@ UUID は小文字で `8-4-4-4-12` の形式で出力しましょう。
 
 ### 標準的なタイムスタンプを提供しましょう
 
-Provide created_at and updated_at timestamps for resources by default,
-e.g:
+リソースに対して created_at や updated_at といったタイムスタンプを標準で提供しましょう。
+
+例:
 
 ```json
 {
@@ -131,8 +132,7 @@ e.g:
 }
 ```
 
-These timestamps may not make sense for some resources, in which case
-they can be omitted.
+これらのタイムスタンプが意味をなさないようなリソースにおいては省略可能とします。
 
 ### ISO8601 形式の UTC 時間を使いましょう
 
