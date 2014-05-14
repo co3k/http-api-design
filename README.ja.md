@@ -85,9 +85,9 @@ Content-Type: application/json;charset=utf-8
 
 ### リクエストボディでは JSON を受け付けましょう
 
-Accept serialized JSON on `PUT`/`PATCH`/`POST` request bodies, either
-instead of or in addition to form-encoded data. This creates symmetry
-with JSON-serialized response bodies, e.g.:
+`PUT` / `PATCH` / `POST` のリクエストボディでは form-encoded データではなく (あるいはそれに加えて) JSON を受け付けるようにしましょう。これによって JSON シリアライズされたレスポンスとの対称がとれます。
+
+例:
 
 ```
 $ curl -X POST https://service.com/apps \
