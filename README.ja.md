@@ -136,8 +136,9 @@ UUID は小文字で `8-4-4-4-12` の形式で出力しましょう。
 
 ### ISO8601 形式の UTC 時間を使いましょう
 
-Accept and return times in UTC only. Render times in ISO8601 format,
-e.g.:
+入力においても出力においても、時間は UTC のみを受け付けます。 ISO8601 形式で表現しましょう。
+
+例:
 
 ```
 "finished_at": "2012-01-01T12:00:00Z"
