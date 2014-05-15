@@ -233,10 +233,9 @@ $ curl https://service.com/apps/www-prod
 
 ### 構造化されたエラーを生成しましょう
 
-Generate consistent, structured response bodies on errors. Include a
-machine-readable error `id`, a human-readable error `message`, and
-optionally a `url` pointing the client to further information about the
-error and how to resolve it, e.g.:
+エラー時には一貫性のある、構造化されたレスポンスボディを生成しましょう。 machine-response なエラーの `id` 、 human-readable なエラーの `message` と、場合によってはエラーや解決方法について手助けとなる情報をクライアントに示す `url` を含めましょう。
+
+例:
 
 ```
 HTTP/1.1 429 Too Many Requests
@@ -250,8 +249,7 @@ HTTP/1.1 429 Too Many Requests
 }
 ```
 
-Document your error format and the possible error `id`s that clients may
-encounter.
+エラーのフォーマットや、クライアントが遭遇する可能性のあるエラーの `id` 群についてはドキュメント化しておきましょう。
 
 ### ETag によるキャッシュをサポートしましょう
 
