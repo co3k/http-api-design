@@ -221,10 +221,7 @@ service-api.com/app-setups
 
 ### 利便性のために ID によらない参照も用意しましょう
 
-In some cases it may be inconvenient for end-users to provide IDs to
-identify a resource. For example, a user may think in terms of a Heroku
-app name, but that app may be identified by a UUID. In these cases you
-may want to accept both an id or name, e.g.:
+リソースの識別のために ID を提供することが、エンドユーザーにとっては面倒な場合があるかもしれません。たとえば、ユーザーは Heroku のアプリ名を期待しているけれども、実際にはアプリは UUID によって識別されているような場合です。このような場合は ID と名前の両方を受け付けたくなるでしょう。
 
 ```
 $ curl https://service.com/apps/{app_id_or_name}
@@ -232,7 +229,7 @@ $ curl https://service.com/apps/97addcf0-c182
 $ curl https://service.com/apps/www-prod
 ```
 
-Do not accept only names to the exclusion of IDs.
+名前だけを受け付けて ID は除外するというのはやめましょう。
 
 ### 構造化されたエラーを生成しましょう
 
